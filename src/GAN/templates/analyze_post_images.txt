@@ -1,0 +1,19 @@
+Analyze each image and provide detailed characteristics. If the image includes a person, identify the following attributes:
+- Gender: male, female, non-binary
+- Life stage: child, adolescent, young adult, adult, elderly
+- Hair length: short, medium, long
+- Hair color: specify the color
+- Hair texture: coily, straight, curly, wavy
+- Face shape: round, oval, square, heart, diamond
+- Personality traits: describe probable personality characteristics
+- The overall vibe and emotion conveyed by the image
+- The personality traits of a person who might typically post such an image
+
+If there is a person in the image, format the results as a JSON object like this:
+{{"gender": "gender", "life_stage": "life_stage", "hair_length": "hair_length", "hair_color": "hair_color", "hair_texture": "hair_texture", "face_shape": "face_shape", "personality_traits": "personality_traits"}}
+
+If no person is visible in the image, format the results as a JSON object like this:
+{{"vibe": "vibe", "personality_traits": "personality_traits"}}
+
+Provide only the JSON object for each image; NO additional explanation needed. 
+return one JSOn object in the form of {{image_i= image_i json object}} where i is the index of the image.

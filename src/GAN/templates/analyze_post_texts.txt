@@ -1,0 +1,12 @@
+I give you several posts of a user delimited by '<>' in addition to the user's bio delimited by '||'. Your task is to do the following:
+1- Extract or guess the user's gender based on their posts or set it to NULL if you cannot find it.
+2. Extract or guess the user's life stage based on their post captions as child, adolescent, young, or old.
+3. Based on the language of the posts and the information in the posts, extract or generate the user's nationality and ethnicity.
+4. Try to learn the user's point of view and generate a post that you think the user is likely to post.
+5. Provide an explanation for how you reached the values for each of the fields.
+DO NOT add any extra explanation to your response.
+MAKE SURE the result is in proper JSON format like result={{ "gender": "gender", "life_stage": "life_stage", "nationality": "nationality", "ethnicity": "ethnicity", "personality": "personality", "explanation": "explanation" }}
+The user's bio is:
+{bio}
+The user's captions are:
+{post_texts_str}

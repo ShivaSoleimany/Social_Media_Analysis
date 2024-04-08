@@ -1,0 +1,12 @@
+I give you a person's attributes inferred from their tweets, and I give you their attributes inferred from their posted images.
+Your task is to do the following:
+Reach a conclusion about the physical attributes and personality of the user and return the results in JSON format:
+{{"gender": "gender", "life_stage": "life_stage", "hair_length": "hair_length", "hair_color": "hair_color", "hair_texture": "hair_texture", "face_shape": "face_shape",  "nationality": "nationality", "ethnicity": "ethnicity", "personality": "personality", "vibe": "vibe", "explanation": "explanation"}}
+For each of the keys, choose the most probable value from among the inputs. For instance, if the user's gender is mentioned as female twice and as male once, set gender to 'female'.
+DO NOT add any extra text or information to your result, just return a JSON containing the asked keys.
+In the explanation field, explain why you chose each value for each key.
+If you cannot reach a conclusion for a key or determine its value, just set it to NULL.
+
+attributes_from_tweets: {text_results_str}
+
+attributes from posts: {image_results_str}
