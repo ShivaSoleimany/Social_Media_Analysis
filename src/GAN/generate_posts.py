@@ -1,8 +1,6 @@
 import os
 import json
 from openai import AsyncOpenAI, OpenAIError
-from playwright.async_api import async_playwright
-
 
 async def generate_avatar(user_description):
 
@@ -21,7 +19,7 @@ async def generate_avatar(user_description):
         except OpenAIError as e:
             print(f"OpenAI API Error: {e}")
             return None
-        
+
 async def generate_post(user_description, user_posts):
 
     prompt = f"""
@@ -43,7 +41,7 @@ async def generate_post(user_description, user_posts):
         try:
             response = await client.chat.completions.create(
                 messages=[{"role": "user", "content": prompt}],
-                model="gpt-4",
+                model="gpt-4o-mini",
             )
 
             data = response.choices[0].message.content

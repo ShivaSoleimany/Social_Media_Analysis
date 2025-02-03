@@ -48,7 +48,7 @@ async def analyze_social_media(twitter_username, instagram_username):
     except Exception as e:
         st.error(f"Failed to analyze profiles: {e}")
         return None, None, None
-        
+
 def main():
     st.title('Social Media Analysis App')
     st.write("""

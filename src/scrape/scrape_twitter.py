@@ -1,8 +1,4 @@
 import asyncio
-import os
-from openai import AsyncOpenAI, OpenAIError
-from playwright.async_api import async_playwright
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -57,63 +53,3 @@ async def scrape_twitter(page, username):
     tweet_texts, tweet_image_urls = await extract_tweets(page)
 
     return bio, tweet_texts, tweet_image_urls
-
-
-def scrape_twitter_sync(username):
-    print(f"Starting synchronous Twitter scrape for username: {username}")
-    return asyncio.run(scrape_twitter(username))
-
-
-# async def extract_posts(page):
-
-#     post_image_urls, post_captions = [], []
-#     outer_selector = '._ac7v'
-#     outer_elements = await page.query_selector_all(outer_selector)
-
-#     if not outer_elements:
-#         return []
-
-#     for post_element in outer_elements:
-#         post_image_url = await extract_post_cover_images(post_element)
-#         post_image_urls.append(post_image_url)
-
-#         post_caption = await extract_post_captions(post_element)
-#         post_captions.append(post_caption)
-
-#     return post_image_urls, post_captions
-
-
-# async def scrape_twitter(username):
-#     async with async_playwright() as p:
-#         browser = await p.chromium.launch(headless=False)
-#         page = await browser.new_page()
-#         url = f"https://twitter.com/{username}/"
-
-#         await page.goto(url)
-
-#         await page.wait_for_selector('main.css-175oi2r', timeout=10000)
-#         # html_content = await page.content()
-#         # print(html_content)
-
-#         await asyncio.sleep(10) 
-
-#         screenshot_path = f'screenshots/{username}_twitter.png'
-#         await page.screenshot(path=screenshot_path)
-#         print(f"Screenshot saved to {screenshot_path}")
-
-#         bio = await extract_bio(page)
-#         tweets = await extract_tweets(page)
-
-
-#         tweet, gender, age, nationality, ethnicity, personality = await analyze_tweets(tweets, bio)
-
-#         if tweet:
-
-#             image_url = await generate_image(gender, age, nationality, ethnicity, personality)
-
-#         else:
-
-#             image_url = None
-
-#         await browser.close()
-#     return bio, tweets, tweet, image_url
